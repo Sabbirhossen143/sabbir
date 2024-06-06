@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+int calculateSquareArea(int x[4], int y[4]) {
+    int min_x = *min_element(x, x + 4);
+    int max_x = *max_element(x, x + 4);
+    int min_y = *min_element(y, y + 4);
+    int max_y = *max_element(y, y + 4);
+
+    int side_length = max(max_x - min_x, max_y - min_y);
+    return side_length * side_length;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        int x[4], y[4];
+        for (int i = 0; i < 4; ++i) {
+            cin >> x[i] >> y[i];
+        }
+
+        int area = calculateSquareArea(x, y);
+
+        cout << area << endl;
+    }
+
+    return 0;
+}
+
+
